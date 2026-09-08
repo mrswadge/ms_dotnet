@@ -77,6 +77,12 @@ module MSDotNet
           checksum: '68c9986a8dcc0214d909aa1f31bee9fb5461bb839edca996a75b08ddffc1483f',
           not_if: %w(KB4503548 KB4486081 KB4486105 KB4486129 KB4486153),
         },
+        '4.8.1' => {
+          name: 'Microsoft .NET Framework 4.8.1',
+          url: 'https://download.microsoft.com/download/4/b/2/cd00d4ed-ebdd-49ee-8a33-eabc3d1030e3/NDP481-x86-x64-AllOS-ENU.exe',
+          checksum: 'c0ca2e0c9cd18a24a0a77369a13fae2c2c4e8bc83355dd24e5ddc00f9d791fe3',
+          not_if: %w(KB5011048),
+        },
         ###########
         # Patches
         ###########

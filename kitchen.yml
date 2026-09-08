@@ -76,6 +76,11 @@ platforms:
       image_search:
         'owner-id': 801119661308
         name: 'Windows_Server-2022-English-Full-Base-20*'
+  - name: windows-2025
+    driver:
+      image_search:
+        'owner-id': 801119661308
+        name: 'Windows_Server-2025-English-Full-Base-20*'
 suites:
   - name: dotnet3
     run_list:
