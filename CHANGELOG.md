@@ -3,6 +3,11 @@ ms_dotnet CHANGELOG
 
 This file is used to list changes made in each version of the ms_dotnet cookbook.
 
+Unreleased
+----------
+- Add support for .NET Framework 4.8.1 on Windows Server 2022 and newer
+- Add support for Windows Server 2025 in kitchen and CI matrices
+
 6.0.0
 -----
 - Drop support for all .NET 2.X versions

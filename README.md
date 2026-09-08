@@ -17,6 +17,7 @@ This cookbook supports and requires Chef 14.7+ to take advantage of the `reboot`
 * Windows Server 2016
 * Windows Server 2019
 * Windows Server 2022
+* Windows Server 2025
 
 Known Issues
 ------------

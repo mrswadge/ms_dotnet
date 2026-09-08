@@ -34,7 +34,9 @@ module MSDotNet
       return if values[:Install].to_i != 1
 
       release = values[:Release].to_i
-      if release >= 528_040
+      if release >= 533_320
+        '4.8.1'
+      elsif release >= 528_040
         '4.8'
       elsif release >= 461_808
         '4.7.2'
@@ -48,7 +50,13 @@ module MSDotNet
     end
 
     def supported_versions
-      @supported_versions ||= %w(4.6.2 4.7 4.7.1 4.7.2 4.8)
+      @supported_versions ||= [].tap do |result|
+        version = ::Gem::Version.new(full_version)
+
+        result.concat(%w(4.6.2 4.7 4.7.1 4.7.2 4.8))
+        # Windows Server 2022 & newer
+        result << '4.8.1' if version >= ::Gem::Version.new('10.0.20348')
+      end
     end
 
     protected
@@ -76,6 +84,8 @@ module MSDotNet
         result << '4.7.2' if version >= ::Gem::Version.new('10.0.17134')
         # Windows 10 v1903 (19H1) & newer
         result << '4.8' if version >= ::Gem::Version.new('10.0.18362')
+        # Windows 11 v24H2 / Server 2025 & newer
+        result << '4.8.1' if version >= ::Gem::Version.new('10.0.26100')
       end
     end
 
@@ -99,6 +109,8 @@ module MSDotNet
         version = ::Gem::Version.new(full_version)
         # Up to Windows 10 v1903, Server 2022
         result << '4.8' if version < ::Gem::Version.new('10.0.18362')
+        # Up to Windows 11 v24H2 / Server 2025
+        result << '4.8.1' if version >= ::Gem::Version.new('10.0.20348') && version < ::Gem::Version.new('10.0.26100')
         # Up to Windows 10 v1803, Server 2019
         result << '4.7.2' if version < ::Gem::Version.new('10.0.17763')
         # Up to Windows 10 & Server 2016 v1709 (RS3)
